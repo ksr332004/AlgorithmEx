@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.etc;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,12 +8,11 @@ import java.util.Scanner;
  * 1974. 스도쿠 검증
  */
 
-public class Problem_1974 {
+public class Problem1974 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "problem_1974.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem1974.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		Scanner sc = new Scanner(file);
 		
 		int T = sc.nextInt();

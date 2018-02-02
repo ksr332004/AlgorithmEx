@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.etc;
 
 import java.io.File;
 import java.util.Arrays;
@@ -8,12 +8,11 @@ import java.util.Scanner;
  * @author Seran
  * 2115. [모의 SW 역량테스트] 벌꿀채취
  */
-public class Problem_2115 {
+public class Problem2115 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "week02_01_2115.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem2115.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		
 		Scanner sc = new Scanner(file);
 		

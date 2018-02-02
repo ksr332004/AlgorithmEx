@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.array;
 
 import java.io.File;
 import java.util.Scanner;
@@ -7,11 +7,11 @@ import java.util.Scanner;
  * Created by Administrator on 2018-01-18.
  * 2805. 농작물 수확하기
  */
-public class Problem_2805 {
+public class Problem2805 {
 
     public static void main(String[] args) throws Exception {
-        String myFile = "D:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-        File file = new File(myFile, "input.txt");
+        String myFile = Problem2805.class.getResource("").getPath();
+        File file = new File(myFile + "../input/", "input.txt");
 
         Scanner sc = new Scanner(file);
 

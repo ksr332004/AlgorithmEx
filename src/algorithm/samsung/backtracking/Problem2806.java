@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.backtracking;
 
 import java.io.File;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Created by Administrator on 2018-01-18.
  * 2806. N-Queen
  */
-public class Problem_2806 {
+public class Problem2806 {
     static int count = 0;
 
     private static boolean isPromising(int level, int[] col) {
@@ -42,8 +42,8 @@ public class Problem_2806 {
     }
 
     public static void main(String[] args) throws Exception {
-        String myFile = "D:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-        File file = new File(myFile, "input.txt");
+        String myFile = Problem2806.class.getResource("").getPath();
+        File file = new File(myFile + "../input/", "input.txt");
 
         Scanner sc = new Scanner(file);
 

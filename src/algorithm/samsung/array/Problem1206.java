@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.array;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,11 +8,11 @@ import java.util.Scanner;
  * 1206. [S/W 문제해결 기본] 1일차 - View
  */
 
-public class Problem_1206 {
+public class Problem1206 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "problem_1206.txt");
+		String myFile = Problem1206.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		
 		Scanner sc = new Scanner(file);
 		

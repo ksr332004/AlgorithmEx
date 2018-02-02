@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.string;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,11 +8,11 @@ import java.util.Scanner;
  * 1240. [S/W 문제해결 응용] 1일차 - 단순 2진 암호코드
  */
 
-public class Problem_1240 {
+public class Problem1240 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "D:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "input.txt");
+		String myFile = Problem1240.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		Scanner sc = new Scanner(file);
 		
 		String[] cryptoNumbers = {"0001101", "0011001", "0010011", "0111101", "0100011", "0110001", "0101111", "0111011", "0110111", "0001011"};

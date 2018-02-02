@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.etc;
 
 import java.io.File;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by Administrator on 2017-09-26.
  * 1859. 백만 장자 프로젝트
  */
-public class Problem_1859 {
+public class Problem1859 {
     // 최대값 찾는 함수
     static int findMax(int[] A, int index) {
         int max = A[index];
@@ -20,8 +20,8 @@ public class Problem_1859 {
     }
 
     public static void main(String args[]) throws Exception	{
-        String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-        File file  = new File(myFile, "week01_01.txt");
+        String myFile = Problem1859.class.getResource("").getPath();
+        File file = new File(myFile + "../input/", "input.txt");
 
         Scanner sc = new Scanner(file);
 

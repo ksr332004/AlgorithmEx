@@ -1,18 +1,17 @@
-package algorithm.samsung;
+package algorithm.samsung.etc;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Created by Seran on 2017-09-30.
  * 1860. 진기의 최고급 붕어빵
  */
-public class Problem_1860 {
+public class Problem1860 {
 
     public static void main(String args[]) throws Exception {
-        String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-        File file = new File(myFile, "week01_02.txt");
+		String myFile = Problem1860.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 
         Scanner sc = new Scanner(file);
         

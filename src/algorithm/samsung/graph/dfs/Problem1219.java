@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.graph.dfs;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 1219. [S/W 문제해결 기본] 4일차 - 길찾기
  */
 
-public class Problem_1219 {
+public class Problem1219 {
 	static boolean[] v;
 	static int Answer;
 	
@@ -25,9 +25,8 @@ public class Problem_1219 {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "week02_02_1219.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem1219.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
         Scanner sc = new Scanner(file);
 
         while(sc.hasNext()) {

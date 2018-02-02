@@ -1,12 +1,13 @@
-package algorithm.samsung;
+package algorithm.samsung.recursion;
 
 import java.io.File;
 import java.util.Scanner;
 
 /**
  * Created by Seran on 2017-10-06.
+ * 1226. [S/W 문제해결 기본] 7일차 - 미로1
  */
-public class Problem_1226 {
+public class Problem1226 {
     static int Answer = 0;
 
     static void solution(int[][] M, int N, int i, int j) {
@@ -31,9 +32,8 @@ public class Problem_1226 {
     }
 
     public static void main(String[] args) throws Exception {
-        String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "week02_02_1226.txt");
-//		File file = new File(myFile, "test.txt");
+        String myFile = Problem1226.class.getResource("").getPath();
+        File file = new File(myFile + "../input/", "input.txt");
         Scanner sc = new Scanner(file);
 
         while(sc.hasNext()) {

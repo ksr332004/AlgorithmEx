@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.array;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,12 +8,11 @@ import java.util.Scanner;
  * 1961. 숫자 배열 회전
  */
 
-public class Problem_1961 {
+public class Problem1961 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "problem_1961.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem1961.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		Scanner sc = new Scanner(file);
 		
 		int T = sc.nextInt();

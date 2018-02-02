@@ -1,4 +1,4 @@
-package samsungSWExpertAcademy;
+package algorithm.samsung.array;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,11 +8,11 @@ import java.util.Scanner;
  * 1204. [S/W 문제해결 기본] 1일차 - 최빈수 구하기
  */
 
-public class Problem_1204 {
+public class Problem1204 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "problem_1204.txt");
+		String myFile = Problem1204.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		Scanner sc = new Scanner(file);
 		
 		while(sc.hasNext()) {

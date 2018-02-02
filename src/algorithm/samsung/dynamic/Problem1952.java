@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.dynamic;
 
 import java.io.File;
 import java.util.Scanner;
@@ -7,12 +7,11 @@ import java.util.Scanner;
  * @author Seran
  * 1952. [모의 SW 역량테스트] 수영장
  */
-public class Problem_1952 {
+public class Problem1952 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "week02_01_1952.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem1952.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		
 		Scanner sc = new Scanner(file);
 		

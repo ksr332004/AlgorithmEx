@@ -1,4 +1,4 @@
-package algorithm.samsung;
+package algorithm.samsung.array;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,18 +8,16 @@ import java.util.Scanner;
  * 1211. [S/W 문제해결 기본] 2일차 - Ladder2
  */
 
-public class Problem_1211 {
+public class Problem1211 {
 
 	public static void main(String[] args) throws Exception {
-		String myFile = "C:\\workspace\\AlgorithmEx\\src\\samsungSWExpertAcademy\\input\\";
-		File file = new File(myFile, "problem_1211.txt");
-//		File file = new File(myFile, "test.txt");
+		String myFile = Problem1211.class.getResource("").getPath();
+		File file = new File(myFile + "../input/", "input.txt");
 		Scanner sc = new Scanner(file);
 
 		while(sc.hasNext()) {
 			int test_case = sc.nextInt();
 			int N = 100;
-//			int N = 10;
 			int[][] L = new int[N][N];
 			for(int i=0; i<N; i++) {
 				for(int j=0; j<N; j++) {
