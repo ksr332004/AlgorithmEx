@@ -25,7 +25,7 @@ public class Problem1949 {
 				continue;
 			}
 
-			if(V[nextX][nextY] == 1) {
+			if(V[nextX][nextY] > 0) {
 				continue;
 			}
 
@@ -36,12 +36,12 @@ public class Problem1949 {
 				V[nextX][nextY] = 0;
 				len--;
 			} else if(M[nowX][nowY] > M[nextX][nextY] - K) {
-				V[nextX][nextY] = 1;
-				M[nextX][nextY]--;
+				V[nextX][nextY] = M[nextX][nextY];
+				M[nextX][nextY] = M[nowX][nowY] - 1;
 				len++;
 				solution(nextX, nextY, 0);
+				M[nextX][nextY] = V[nextX][nextY];
 				V[nextX][nextY] = 0;
-				M[nextX][nextY]++;
 				len--;
 			}
 		}
