@@ -1,3 +1,6 @@
+# Project
+src/algorithm/**/input/*.txt
+
 # Java
 bin/
 out/
