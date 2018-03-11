@@ -1,54 +1,35 @@
 package algorithm.baekjoon.sort;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017-09-11.
  * https://www.acmicpc.net/problem/1205
  * [등수 구하기]
- *
- * (해결)
- *
- * (문제점)
- * 1. 문제를 잘못이해, 100 90 90 80 일때 80을 3으로 계산
- * 2. 3  30 4
- *    40 30 30  이러한 테스트 케이스 통과하지 못함
- * 3. me 값을 먼저 배열에 넣고 정렬 시킨 후 P 범위 내의 가장 작은 값과 비교를 하니 예외 발생
- * 4. 문제를 잘못이해, 조건에 이미 역순으로 정렬이 되어 있음
  */
 public class Ex1205 {
-    static int solution(int[] scores, int me, int size) {
-        int answer = 1;
+    static int solution (int[] scores, int me, int size) {
+        int n = scores.length;
+        // 등수를 현재 랭킹 중 맨 마지막으로 초기화
+        int answer = n + 1;
 
-        Arrays.sort(scores);
-
-        if(scores.length > size && scores[scores.length - size] >= me) {
+        // 랭킹에 들어 가지 못할 경우
+        if (size <= n  && me <= scores[n - 1]) {
             answer = -1;
             return answer;
         }
-        scores[0] = me;
-        Arrays.sort(scores);
 
-        if(scores.length < size) {
-            size = scores.length;
+        // 랭킹 1위일 경우
+        if (n == 0 || scores[0] <= me) {
+            answer = 1;
+            return answer;
         }
 
-        if(scores[scores.length-1] == me) {
-            answer = 1;
-        } else {
-            int loop = 0;
-            for(int i=2; i<=size; i++) {
-                if(scores[scores.length-i] != scores[scores.length-i+1]) {
-                    answer = answer + 1 + loop;
-                    loop = 0;
-                } else {
-                    loop++;
-                }
-                if(scores[scores.length-i] == me) {
-                    answer = answer + loop;
-                    break;
-                }
+        // 그 외
+        for (int i=1; i<n; i++) {
+            if (me >= scores[i]) {
+                answer = i + 1;
+                break;
             }
         }
 
@@ -61,8 +42,8 @@ public class Ex1205 {
         int me = sc.nextInt();
         int size = sc.nextInt();
 
-        int[] scores = new int[n+1];
-        for(int i=0; i<n; i++) {
+        int[] scores = new int[n];
+        for (int i=0; i<n; i++) {
             scores[i] = sc.nextInt();
         }
 
