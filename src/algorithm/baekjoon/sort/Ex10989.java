@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
  * [수 정렬하기 3]
  * 퀵 정렬 시간초과
  * Scanner 시간초과
- * numbers에 대한 크기를 지정해 줘야 런타임 에러가 없음
  */
 public class Ex10989 {
     public static void main(String[] args) throws Exception {

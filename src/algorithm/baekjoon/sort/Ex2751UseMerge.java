@@ -9,7 +9,7 @@ import java.util.Scanner;
  * (해결)
  * Merge Sort 이용
  */
-public class Ex2751 {
+public class Ex2751UseMerge {
     static int[] merge(int s[], int stsrtIndex, int middleIndex, int endIndex) {
         int leftIndex = stsrtIndex;
         int rightIndex = middleIndex + 1;
@@ -71,7 +71,7 @@ public class Ex2751 {
         }
 
         int[] answer = merge_sort(numbers, 0, n-1);
-        for(int i=0; i<answer.length; i++) {
+        for (int i=0; i<answer.length; i++) {
             System.out.println(answer[i]);
         }
     }
