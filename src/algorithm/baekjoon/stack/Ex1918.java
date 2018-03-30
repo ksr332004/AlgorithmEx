@@ -1,57 +1,76 @@
 package algorithm.baekjoon.stack;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * Created by Administrator on 2017-09-22.
+ * Created by Administrator on 2018-03-26.
  * https://www.acmicpc.net/problem/1918
- * [후위표기식]
- *
- * (해결)
- *
+ * [1918. 후위표기식]
+ * 작은 단위의 ()를 중심으로 계산
  */
 public class Ex1918 {
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        String T = sc.nextLine();
-
-        String Answer = "";
-
+        // 입력받은 연산
+        String S = sc.nextLine();
+        // 연산자 순위
         Stack<Character> stack = new Stack<Character>();
 
-        for(int i=0; i<T.length(); i++) {
-            if(T.charAt(i) >= 'A' && T.charAt(i) <= 'Z') {
-                Answer += T.charAt(i);
-            } else if(T.charAt(i) == ')') {
-                while (stack.peek() != '(') {
-                    Answer += stack.peek();
-                    stack.pop();
-                }
-                stack.pop();
+        // 연산자
+        HashMap<Character, Integer> operators = new HashMap<Character, Integer>();
+        operators.put('+', 1);
+        operators.put('-', 1);
+        operators.put('*', 2);
+        operators.put('/', 2);
+        operators.put('(', 0);
+        operators.put(')', 0);
+        // 후위 표기법으로 변환된 답
+        String answer = "";
+
+        for (int i=0; i<S.length(); i++) {
+            // 연산자가 아닐 경우
+            if (!operators.containsKey(S.charAt(i))) {
+                answer += S.charAt(i);
+                continue;
+            }
+
+            if (S.charAt(i) == '(') {
+                stack.push(S.charAt(i));
+            } else if (stack.isEmpty()) {
+                stack.push(S.charAt(i));
+            } else if (operators.get(S.charAt(i)) > operators.get(stack.peek())) {
+                stack.push(S.charAt(i));
             } else {
-                if(stack.size() != 0 && (T.charAt(i) == '+' || T.charAt(i) == '-') && (stack.peek() == '+' || stack.peek() == '-')) {
-                    Answer += T.charAt(i);
-                } else if(stack.size() != 0 && (T.charAt(i) == '*' || T.charAt(i) == '/') && (stack.peek() == '*' || stack.peek() == '/')) {
-                    Answer += T.charAt(i);
-                } else if(stack.size() != 0 && (T.charAt(i) == '+' || T.charAt(i) == '-') && (stack.peek() == '*' || stack.peek() == '/')) {
-                    while (stack.size() > 0 && stack.peek() != '(') {
-                        Answer += stack.peek();
+                while (!stack.isEmpty() && operators.get(stack.peek()) >= operators.get(S.charAt(i))) {
+                    if (stack.peek() == '(') {
                         stack.pop();
+                        operators.replace('(', 3);
+                        operators.replace(')', 3);
+                        break;
                     }
-                    stack.push(T.charAt(i));
+                    answer += stack.pop();
+                }
+
+                if (S.charAt(i) == ')') {
+                    operators.replace('(', 0);
+                    operators.replace(')', 0);
                 } else {
-                    stack.push(T.charAt(i));
+                    stack.push(S.charAt(i));
                 }
             }
         }
 
-        while (stack.size() != 0) {
-            Answer += stack.peek();
-            stack.pop();
+        while (!stack.isEmpty()) {
+            if (stack.peek() == ')') {
+                stack.pop();
+                continue;
+            }
+            answer += stack.pop();
         }
 
-        System.out.println(Answer);
+        System.out.println(answer);
     }
 }
