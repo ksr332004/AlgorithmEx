@@ -14,7 +14,7 @@ public class Ex1966 {
         int name;        // 문서 이름
         int importance;  // 문서 중요도
 
-        Document(int name, int importance) {
+        public Document(int name, int importance) {
             this.name = name;
             this.importance = importance;
         }
