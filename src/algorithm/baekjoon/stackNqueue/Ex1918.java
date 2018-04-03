@@ -37,13 +37,16 @@ public class Ex1918 {
                 continue;
             }
 
-            if (S.charAt(i) == '(') {
+
+            if (S.charAt(i) == '(') {        // '(' 일 경우는 stack에 넣음
                 stack.push(S.charAt(i));
-            } else if (stack.isEmpty()) {
+            } else if (stack.isEmpty()) {    // 첫번째 연산자일 경우 stack에 넣음
                 stack.push(S.charAt(i));
-            } else if (operators.get(S.charAt(i)) > operators.get(stack.peek())) {
+            } else if (operators.get(S.charAt(i)) > operators.get(stack.peek())) {  // 현재 연산자가 stack에 있는 연산자보다 클 경우 stack에 넣음
                 stack.push(S.charAt(i));
             } else {
+                // 현재 연산자보다 stack에 있는 연산자가 작은 연산자가 나오기 전까지 stack에 pop
+                // '( )' 내에 연산이 이루어 질때마다 가중치를 달리주어 '()' 내에 연산만 이루어 지도록 함
                 while (!stack.isEmpty() && operators.get(stack.peek()) >= operators.get(S.charAt(i))) {
                     if (stack.peek() == '(') {
                         stack.pop();
