@@ -19,21 +19,21 @@ public class Ex11055 {
 		for(int i=0; i<N; i++) {
 			A[i] = sc.nextInt();
 		}
-		
-		int[] D = new int[N];
+
+		Integer[] D = new Integer[N];
 		D[0] = A[0];
-		for(int i=1; i<N; i++) {
-			D[i] = A[i];
-			for(int j=0; j<i; j++) {
-				if(A[i] > A[j]) {
-					D[i] = Math.max(D[j] + A[i], D[i]);
+		for (int i=1; i<N; i++) {
+			for (int j=i-1; j>=0; j++) {
+				if (A[i] >= A[j]) {
+					D[i] = Math.max(D[i], A[j]);
 				}
+				D[i] += A[i];
 			}
 		}
-		
-		Arrays.sort(D);
-		
-		System.out.println(D[N-1]);
+
+
+
+		System.out.println();
 	}
 
 }
