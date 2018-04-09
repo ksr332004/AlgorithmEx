@@ -1,4 +1,4 @@
-package codility;
+package algorithm.codility;
 
 import java.util.Scanner;
 

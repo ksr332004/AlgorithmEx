@@ -1,4 +1,4 @@
-package string;
+package algorithm.baekjoon.string;
 
 import java.util.Scanner;
 
