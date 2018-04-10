@@ -37,24 +37,13 @@ public class Problem1953 {
 	};
 	static int[] turn = {2, 3, 0, 1};
 
-	static void printMap(int[][] road) {
-		for (int i=0; i<N; i++) {
-			for (int j=0; j<M; j++) {
-				System.out.print(road[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
 	static void searchForThief(int X, int Y, int time) {
-//		if (time > L) {
-//			return;
-//		}
 
-		road[X][Y] = time;
-		System.out.println(time);
-		printMap(road);
+		if (road[X][Y] == 0) {
+			road[X][Y] = time;
+		} else {
+			road[X][Y] = Math.min(road[X][Y], time);
+		}
 
 		int pipType = map[X][Y];
 		for (int i=0; i<4; i++) {
@@ -70,8 +59,7 @@ public class Problem1953 {
 			if (y < 0 || y >= M) {
 				continue;
 			}
-			if (road[x][y] != 0) {
-				road[x][y] = Math.min(road[x][y], time);
+			if (road[x][y] != 0 && road[x][y] < time + 1) {
 				continue;
 			}
 
