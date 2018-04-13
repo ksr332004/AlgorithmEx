@@ -9,37 +9,33 @@ import java.util.Scanner;
  */
 public class Problem4008 {
     static int[] C;
-    static int[] TEMP;
     static int[] NUM;
     static int min;
     static int max;
 
     static void makeCase(int step, int sum) {
-        if (step >= C.length) {
+        if (step >= NUM.length-1) {
             min = Math.min(min, sum);
             max = Math.max(max, sum);
             return;
         }
 
         for (int i=0; i<C.length; i++) {
-            if (TEMP[i] == 1) {
-                continue;
-            }
-            if (step == 0 && i > 0 && C[i] == C[i-1]) {
+            if (C[i] == 0) {
                 continue;
             }
 
-            TEMP[i] = 1;
-            if (C[i] == 0) {
-                makeCase(step + 1, sum + NUM[step+1]);
-            } else if (C[i] == 1) {
-                makeCase(step + 1, sum - NUM[step+1]);
-            } else if (C[i] == 2) {
-                makeCase(step + 1, sum * NUM[step+1]);
-            } else if (C[i] == 3) {
-                makeCase(step + 1, sum / NUM[step+1]);
+            C[i]--;
+            if (i == 0) {
+                makeCase(step+1, sum + NUM[step+1]);
+            } else if (i == 1) {
+                makeCase(step+1, sum - NUM[step+1]);
+            } else if (i == 2) {
+                makeCase(step+1, sum * NUM[step+1]);
+            } else if (i == 3) {
+                makeCase(step+1, sum / NUM[step+1]);
             }
-            TEMP[i] = 0;
+            C[i]++;
         }
     }
 
@@ -58,14 +54,9 @@ public class Problem4008 {
             // 총 연산자의 개수
             int M  = N-1;
             // 주어진 연산자 각각의 개수
-            C = new int[M];
-            int a = 0;
+            C = new int[4];
             for (int i=0; i<4; i++) {
-                int t = sc.nextInt();
-                for (int j=0; j<t; j++) {
-                    C[a] = i;
-                    a++;
-                }
+                C[i] = sc.nextInt();
             }
             // 수식에 사용되는 숫자
             NUM = new int[N];
@@ -73,7 +64,6 @@ public class Problem4008 {
                 NUM[i] = sc.nextInt();
             }
 
-            TEMP = new int[M];
             min = 100000001;
             max = -100000001;
 
